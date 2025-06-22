@@ -52,7 +52,7 @@ const store=MongoStore.create({
     touchAfter:24*3600,
 });
 
-store.on("error",()=>{
+store.on("error",(err)=>{
     console.log("Error in mongo session store",err);
 });
 
@@ -70,9 +70,9 @@ const sessionOptions={
 
 
 
-// app.get("/",(req,res)=>{
-//     res.send("working");
-// });
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+});
 
 
 app.use(session(sessionOptions));
